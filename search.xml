@@ -20,17 +20,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[P2010题解]]></title>
-    <url>%2F2019%2F01%2F17%2FP2010%E9%A2%98%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[蒟蒻来这只是给各位大佬看看我鬼畜的码风的 题目传送门 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101102103#include&lt;cstdio&gt;#include&lt;string&gt;#include&lt;iostream&gt;#include&lt;cstdlib&gt;using namespace std;string s1,s2;int ans;bool check(string s)&#123; int len=s.length()-1; for(int i=0;i&lt;len/2;i++) &#123; if(s[i]!=s[len-i]) return false; &#125; return true;&#125;int day1[13]=&#123;-1,31,28,31,30,31,30,31,31,30,31,30,31&#125;;int day2[13]=&#123;-1,31,29,31,30,31,30,31,31,30,31,30,31&#125;;int main()&#123; cin &gt;&gt; s1 &gt;&gt; s2; if(s1==s2) &#123; if(check(s1)) printf("1\n"); else printf("0\n"); exit(0); &#125; int year1=0; for(int i=0;i&lt;4;i++) &#123; year1=year1*10+s1[i]-48; &#125; int year2=0; for(int i=0;i&lt;4;i++) &#123; year2=year2*10+s2[i]-48; &#125; int tt1=0,tt2=0; for(int i=4;i&lt;=7;i++) &#123; tt1=tt1*10+s1[i]-48; tt2=tt2*10+s2[i]-48; &#125; int t1,t2,tmp; t1=year1%100; t2=year1/100; t1=t1%10*10+t1/10; t2=t2%10*10+t2/10; tmp=t1*100+t2; //cout &lt;&lt; t1 &lt;&lt;" " &lt;&lt; t2 &lt;&lt; " " &lt;&lt; tt1 &lt;&lt; endl; if(t1&gt;=1 &amp;&amp; t1&lt;=12 &amp;&amp; tmp&gt;=tt1) &#123; if((year1%4==0 &amp;&amp; year1%100!=0) || (year1%400==0)) &#123; if(t2&gt;day2[t1]); else ans++; &#125; else&#123; if(t2&gt;day1[t1]); else ans++; &#125; &#125; t1=year2%100; t2=year2/100; t1=t1%10*10+t1/10; t2=t2%10*10+t2/10; tmp=t1*100+t2; // cout &lt;&lt; t1 &lt;&lt;" " &lt;&lt; t2 &lt;&lt; " " &lt;&lt; tt2 &lt;&lt; endl; if(t1&gt;=1 &amp;&amp; t1&lt;=12 &amp;&amp; tmp&lt;=tt2 &amp;&amp; year1!=year2) &#123; if((year2%4==0 &amp;&amp; year2%100!=0) || (year2%400==0)) &#123; if(t2&gt;day2[t1] ) ; else ans++; &#125; else&#123; if(t2&gt;day1[t1]) ; else ans++; &#125; &#125; for(int year=year1+1;year&lt;=year2-1;year++) &#123; int mon=year%100; int day=year/100; mon=mon%10*10+mon/10; day=day%10*10+day/10; if(mon&lt;1 || mon &gt;12) continue; if(day &lt;1 || day&gt;31) continue; if((year%4==0 &amp;&amp; year%100!=0) || year%400==0) &#123; if(day2[mon]&lt;day) continue; ans++; &#125; else&#123; if(day1[mon]&lt;day) continue; ans++; &#125; &#125; printf("%d\n",ans); return 0;&#125;]]></content>
-      <categories>
-        <category>题解</category>
-      </categories>
-      <tags>
-        <tag>模拟,算法竞赛</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[OI现代诗——抚慰落榜的Oiers]]></title>
     <url>%2F2019%2F01%2F17%2FOI%E7%8E%B0%E4%BB%A3%E8%AF%97%E2%80%94%E2%80%94%E6%8A%9A%E6%85%B0%E8%90%BD%E6%A6%9C%E7%9A%84Oiers%2F</url>
     <content type="text"><![CDATA[愿NOIP未发挥好的， 落榜的， 初赛退役的， 复赛文件未打的， 文化课成绩不如人意的， 十分有压力的， 处于升学的尬尴场面的， 心情郁塞的， 被神犇压制而被看不见的， 没有存在感的， 老师父母不理解的， 被同学所轻看的， 自暴自弃的， Oiers。 快乐(也祝我自己)。 有些事情总会过去的。 o(￣▽￣)ブ]]></content>
@@ -86,9 +75,9 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[关于博客搬运事宜]]></title>
-    <url>%2F2019%2F01%2F12%2F%E5%85%B3%E4%BA%8E%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%90%E4%BA%8B%E5%AE%9C%2F</url>
-    <content type="text"><![CDATA[这是最近拿hexo搭的blog我最近实在没有时间，搬运工作会在寒假慢慢的做起来。]]></content>
+    <title><![CDATA[关于新博客搬运事宜]]></title>
+    <url>%2F2019%2F01%2F12%2F%E5%85%B3%E4%BA%8E%E6%96%B0%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%90%E4%BA%8B%E5%AE%9C%2F</url>
+    <content type="text"><![CDATA[这是最近拿hexo搭的blog我最近实在没有时间，搬运工作会在寒假慢慢的做起来。 PS:蒟蒻不知道怎么建的站，大图显示功能坏了，若哪位大佬知道联系一下我蛤]]></content>
       <tags>
         <tag>杂项</tag>
       </tags>
