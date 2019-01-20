@@ -8,7 +8,8 @@
         <category>题目翻译</category>
       </categories>
       <tags>
-        <tag>最小生成树,POJ</tag>
+        <tag>最小生成树</tag>
+        <tag>POJ</tag>
       </tags>
   </entry>
   <entry>
@@ -60,7 +61,10 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>数据结构,线段树,算法竞赛,离散化</tag>
+        <tag>线段树</tag>
+        <tag>数据结构</tag>
+        <tag>算法竞赛</tag>
+        <tag>离散化</tag>
       </tags>
   </entry>
   <entry>
