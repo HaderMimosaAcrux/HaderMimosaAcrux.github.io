@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>数据结构的半夜----线段树学习笔记1 | HaderMimosaAcrux</title>
+  <title>Category: 线段树学习笔记 | HaderMimosaAcrux</title>
   
   
   <meta name="description" content="OI,算法竞赛,acm,数据结构,noip,算法,noi,HaderMimosaAcrux">
@@ -46,7 +46,7 @@
   
   
   <div class="cover-wrapper">
-    <cover class='cover post half'>
+    <cover class='cover  half'>
       
         
   <h1 class='title'>Material X</h1>
@@ -278,12 +278,27 @@
 
   <div class="l_body">
     <div class='body-wrapper'>
-      <div class='l_main'>
-  
-
-  
-    <article id="post" class="post white-box article-type-post" itemscope itemprop="blogPost">
       
+<div class='l_main'>
+  
+    
+      
+  <section class="post-list">
+    
+      
+        
+          
+        
+          
+        
+      
+    
+    
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
 
 
   <section class='meta'>
@@ -292,13 +307,11 @@
     <div class="meta" id="header-meta">
       
         
-  
-    <h1 class="title">
-      <a href="/2019/01/17/数据结构的半夜-线段树学习笔记1/">
-        数据结构的半夜----线段树学习笔记1
-      </a>
-    </h1>
-  
+  <h2 class="title">
+    <a href="/2019/01/17/数据结构的半夜——线段树学习笔记2-离散化/">
+      数据结构的半夜——线段树学习笔记2:离散化
+    </a>
+  </h2>
 
 
       
@@ -345,19 +358,6 @@
         
           
             
-  
-    <div class="new-meta-item browse busuanzi">
-      <a class='notlink'>
-        <i class="fas fa-eye" aria-hidden="true"></i>
-        <p>
-          <span id="busuanzi_value_page_pv">
-            <i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i>
-          </span>
-        </p>
-      </a>
-    </div>
-  
-
 
           
         
@@ -374,9 +374,185 @@
   </section>
 
 
-      <section class="article typo">
-        <div class="article-entry" itemprop="articleBody">
-          <h3 id="说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言"><a href="#说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言" class="headerlink" title="说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言"></a>说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言</h3><p>线段树,英文Segment Tree</p>
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>今晚完成了<a href="https://vjudge.net/contest/224435#overview" target="_blank" rel="noopener">kuanbin带你飞</a>的第四道例题，一道运用离散化思想的题目</p>
+<p>这里就来总结归纳这道例题</p>
+<h3 id="D-Mayor’s-posters-POJ-2528"><a href="#D-Mayor’s-posters-POJ-2528" class="headerlink" title="D-Mayor’s posters POJ 2528"></a>D-Mayor’s posters POJ 2528</h3><table>
+<thead>
+<tr>
+<th><strong>Time Limit:</strong> 1000MS</th>
+<th></th>
+<th><strong>Memory Limit:</strong> 65536K</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Total Submissions:</strong> 80590</td>
+<td></td>
+<td><strong>Accepted:</strong> 23189</td>
+</tr>
+</tbody></table>
+<p>Description</p>
+<p>The citizens of Bytetown, AB, could not stand that the candidates in the mayoral election campaign have been placing their electoral posters at all places at their whim. The city council has finally decided to build an electoral wall for placing the posters and introduce the following rules:</p>
+<ul>
+<li>Every candidate can place exactly one poster on the wall. </li>
+<li>All posters are of the same height equal to the height of the wall; the width of a poster can be any integer number of bytes (byte is the unit of length in Bytetown). </li>
+<li>The wall is divided into segments and the width of each segment is one byte. </li>
+<li>Each poster must completely cover a contiguous number of wall segments.</li>
+</ul>
+<p>They have built a wall 10000000 bytes long (such that there is enough place for all candidates). When the electoral campaign was restarted, the candidates were placing their posters on the wall and their posters differed widely in width. Moreover, the candidates started placing their posters on wall segments already occupied by other posters. Everyone in Bytetown was curious whose posters will be visible (entirely or in part) on the last day before elections.</p>
+<p>Your task is to find the number of visible posters when all the posters are placed given the information about posters’ size, their place and order of placement on the electoral wall.</p>
+<p>Input</p>
+<p>The first line of input contains a number c giving the number of cases that follow. The first line of data for a single case contains number 1 &lt;= n &lt;= 10000. The subsequent n lines describe the posters in the order in which they were placed. The i-th line among the n lines contains two integer numbers li and ri which are the number of the wall segment occupied by the left end and the right end of the i-th poster, respectively. We know that for each 1 &lt;= i &lt;= n, 1 &lt;= li &lt;= ri &lt;= 10000000. After the i-th poster is placed, it entirely covers all wall segments numbered li, li+1 ,… , ri.</p>
+<p>Output</p>
+<p>For each input data set print the number of visible posters after all the posters are placed. </p>
+<p>The picture below illustrates the case of the sample input.<br><img src="http://poj.org/images/2528_1.jpg" alt="img"></p>
+<p>Sample Input</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">5</span><br><span class="line">1 4</span><br><span class="line">2 6</span><br><span class="line">8 10</span><br><span class="line">3 4</span><br><span class="line">7 10</span><br></pre></td></tr></table></figure>
+
+<p>Sample Output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
+
+<p>精简题意:在10000000长的线段上，依次使用长度不等的线段去覆盖，问可以从最外层看见多少条线段。</p>
+<p>这里抽象题意，可以看作在长度为10000000的区间，依次染色区间[l,r],最后剩下多少种颜色</p>
+<p>这么长的长度，直接使用nlogn数据结构无法维护，但是我们发现只有10000条线段，所以大部分空间是浪费的,可以通过离散化来压缩空间。</p>
+<p>这里的线段树只是一个工具，核心是离散化的过程</p>
+<p>我找到一组小数据但是十分典型，可以来模拟我们的离散化过程</p>
+<p>依次染色的区间为</p>
+<p>[1,10]</p>
+<p>[1,4]</p>
+<p>[6,10]</p>
+<p>未离散化前应该是这么染的 </p>
+<p>ps: === 代表一格</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">=== === === === === === === === === === </span><br><span class="line"></span><br><span class="line">=== === === === === === === === === ===</span><br><span class="line"></span><br><span class="line">=== === === === ===</span><br><span class="line"></span><br><span class="line">					    === === === ===</span><br></pre></td></tr></table></figure>
+
+<p>正确答案为3</p>
+<p>如果按普通的离散化方式进行染色</p>
+<p>离散化:</p>
+<p>1 2 3 4</p>
+<p>1 4 6 10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">=== === === ===</span><br><span class="line"></span><br><span class="line">=== === === ===</span><br><span class="line"></span><br><span class="line">=== ===</span><br><span class="line">   </span><br><span class="line">        === ===</span><br></pre></td></tr></table></figure>
+
+<p>而这样却答案变成了2</p>
+<p>经过观察发现，由于4与6经离散化后两个区间连在了一起，于是我们将两个若相差一格及以上的点，</p>
+<p>加入一个点来表示他们中间的点:</p>
+<p>1 2 3 4 5 6 7</p>
+<p>1 2 4 5 6 7 10</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">=== === === === === === ===</span><br><span class="line"></span><br><span class="line">=== === === === === === ===</span><br><span class="line"></span><br><span class="line">=== === === </span><br><span class="line"></span><br><span class="line">                === === ===</span><br></pre></td></tr></table></figure>
+
+<p>答案就便是正确的了</p>
+<p>将离散化的核心代码进行解析</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tot=<span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;lx[i],&amp;rx[i]);</span><br><span class="line">    tot++;</span><br><span class="line">    num[tot]=lx[i];<span class="comment">//将l,r端点加入数组中</span></span><br><span class="line">    tot++;</span><br><span class="line">    num[tot]=rx[i];</span><br><span class="line">&#125;</span><br><span class="line">sort(num+<span class="number">1</span>,num+<span class="number">1</span>+tot);<span class="comment">//进行排序</span></span><br><span class="line"><span class="keyword">int</span> q=unique(num+<span class="number">1</span>,num+<span class="number">1</span>+tot)-num<span class="number">-1</span>;<span class="comment">//离散化</span></span><br><span class="line"><span class="keyword">int</span> m=q;<span class="comment">//记录元素个数</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(num[i+<span class="number">1</span>]-num[i] &gt; <span class="number">1</span>) q++,num[q]=num[i]+<span class="number">1</span>;</span><br><span class="line">    <span class="comment">//若两个相邻元素相差大于等于1格，加入中间元素</span></span><br><span class="line">&#125;</span><br><span class="line">sort(num+<span class="number">1</span>,num+<span class="number">1</span>+q);<span class="comment">//再次排序</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">&#123;</span><br><span class="line">    L=lower_bound(num+<span class="number">1</span>,num+<span class="number">1</span>+q,lx[i])-num;<span class="comment">//找到下标</span></span><br><span class="line">    R=lower_bound(num+<span class="number">1</span>,num+<span class="number">1</span>+q,rx[i])-num;</span><br><span class="line">    C=i;</span><br><span class="line">    update(<span class="number">1</span>,q,<span class="number">1</span>);<span class="comment">//插入线段树</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时统计元素个数时只要看区间的lazytag为多少即可</p>
+<p>最后上标程</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> maxn 10005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson th&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson th&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> vis[maxn&lt;&lt;<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> tag[maxn&lt;&lt;<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> lx[maxn&lt;&lt;<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> rx[maxn&lt;&lt;<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> num[maxn&lt;&lt;<span class="number">4</span>];</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> L,R,C;</span><br><span class="line"><span class="keyword">int</span> T;</span><br><span class="line"><span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> th)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tag[th]==<span class="number">0</span>)  <span class="keyword">return</span>;</span><br><span class="line">    tag[lson]=tag[rson]=tag[th];</span><br><span class="line">    tag[th]=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> th)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L&lt;=l &amp;&amp; r&lt;=R)</span><br><span class="line">    &#123;</span><br><span class="line">        tag[th]=C;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    pushdown(th);</span><br><span class="line">    <span class="keyword">int</span> mid=l+r &gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(L&lt;=mid) update(l,mid,lson);</span><br><span class="line">    <span class="keyword">if</span>(mid&lt;R) update(mid+<span class="number">1</span>,r,rson);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> th)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tag[th]!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[tag[th]]==<span class="number">0</span>) ans++;</span><br><span class="line">        vis[tag[th]]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid=l+r &gt;&gt;<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(l==r) <span class="keyword">return</span>;</span><br><span class="line">    query(l,mid,lson);</span><br><span class="line">    query(mid+<span class="number">1</span>,r,rson);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis,<span class="number">0</span>,<span class="keyword">sizeof</span>(vis));</span><br><span class="line">        <span class="built_in">memset</span>(tag,<span class="number">0</span>,<span class="keyword">sizeof</span>(tag));</span><br><span class="line">        <span class="built_in">memset</span>(num,<span class="number">0</span>,<span class="keyword">sizeof</span>(num));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">        <span class="keyword">int</span> tot=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;lx[i],&amp;rx[i]);</span><br><span class="line">            tot++;</span><br><span class="line">            num[tot]=lx[i];</span><br><span class="line">            tot++;</span><br><span class="line">            num[tot]=rx[i];</span><br><span class="line">        &#125;</span><br><span class="line">        sort(num+<span class="number">1</span>,num+<span class="number">1</span>+tot);</span><br><span class="line">        <span class="keyword">int</span> q=unique(num+<span class="number">1</span>,num+<span class="number">1</span>+tot)-num<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> m=q;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(num[i+<span class="number">1</span>]-num[i] &gt; <span class="number">1</span>) q++,num[q]=num[i]+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        sort(num+<span class="number">1</span>,num+<span class="number">1</span>+q);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            L=lower_bound(num+<span class="number">1</span>,num+<span class="number">1</span>+q,lx[i])-num;</span><br><span class="line">            R=lower_bound(num+<span class="number">1</span>,num+<span class="number">1</span>+q,rx[i])-num;</span><br><span class="line">            C=i;</span><br><span class="line">            update(<span class="number">1</span>,q,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        ans=<span class="number">0</span>;</span><br><span class="line">        query(<span class="number">1</span>,q,<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>做完这道题后，我对离散化的理解更加的深入与彻底了</p>
+
+      
+    </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/数据结构/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>数据结构</a>
+        
+          <a href="/tags/线段树/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>线段树</a>
+        
+          <a href="/tags/算法竞赛/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>算法竞赛</a>
+        
+          <a href="/tags/离散化/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>离散化</a>
+        
+      </div>
+    
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/01/17/数据结构的半夜-线段树学习笔记1/">
+      数据结构的半夜----线段树学习笔记1
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    <a href="/hadermimosaacrux.com" rel="nofollow">
+      
+        <i class="fas fa-user" aria-hidden="true"></i>
+      
+      <p>HaderMimosaAcrux</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019-01-17</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/线段树学习笔记/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>线段树学习笔记</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <h3 id="说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言"><a href="#说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言" class="headerlink" title="说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言"></a>说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言</h3><p>线段树,英文Segment Tree</p>
 <p>这种树形数据结构十分容易形象地绘成图形</p>
 <p><img src="https://cdn.luogu.org/upload/pic/45598.png" alt></p>
 <p>如图所示，线段树有以下性质:</p>
@@ -484,158 +660,38 @@
 
 <p>理解了之后代码难度并不是非常大，毕竟只是最最基础的应用而已。</p>
 
-        </div>
-        
-          
-
-
-  <section class='meta' id="footer-meta">
-    <hr>
-    <div class='new-meta-box'>
-      
-        
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-07-29T23:32:41+08:00">
-  <a class='notlink'>
-    <i class="fas fa-clock" aria-hidden="true"></i>
-    <p>last updated at Jul 29, 2019</p>
-  </a>
-</div>
-
-        
-      
-        
-          
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/数据结构/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>数据结构</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/线段树/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>线段树</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/算法竞赛/" rel="nofollow"><i class="fas fa-hashtag" aria-hidden="true"></i>&nbsp;<p>算法竞赛</p></a></div>
-
-
-        
-      
-        
-          
-  <div class="new-meta-item share -mob-share-list">
-  <div class="-mob-share-list share-body">
-    
-      
-        <a class="-mob-share-qq" title="QQ好友" rel="external nofollow noopener noreferrer"
-          
-          href="http://connect.qq.com/widget/shareqq/index.html?url=hadermimosaacrux.com/2019/01/17/数据结构的半夜-线段树学习笔记1/&title=数据结构的半夜----线段树学习笔记1 | HaderMimosaAcrux&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qq.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-qzone" title="QQ空间" rel="external nofollow noopener noreferrer"
-          
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=hadermimosaacrux.com/2019/01/17/数据结构的半夜-线段树学习笔记1/&title=数据结构的半夜----线段树学习笔记1 | HaderMimosaAcrux&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/qzone.png">
-          
-        </a>
-      
-    
-      
-        <a class="-mob-share-weibo" title="微博" rel="external nofollow noopener noreferrer"
-          
-          href="http://service.weibo.com/share/share.php?url=hadermimosaacrux.com/2019/01/17/数据结构的半夜-线段树学习笔记1/&title=数据结构的半夜----线段树学习笔记1 | HaderMimosaAcrux&summary="
-          
-          >
-          
-            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/assets@19.1.9/logo/128/weibo.png">
-          
-        </a>
-      
-    
-  </div>
-</div>
-
-
-
-        
       
     </div>
+    
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/数据结构/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>数据结构</a>
+        
+          <a href="/tags/线段树/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>线段树</a>
+        
+          <a href="/tags/算法竞赛/" rel="nofollow"><i class="fas fa-hashtag fa-fw"></i>算法竞赛</a>
+        
+      </div>
+    
   </section>
+</article>
 
-
+          </div>
         
-        
-            <div class="prev-next">
-                
-                    <section class="prev">
-                        <span class="art-item-left">
-                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;Previous</h6>
-                            <h4>
-                                <a href="/2019/01/17/数据结构的半夜——线段树学习笔记2-离散化/" rel="prev" title="数据结构的半夜——线段树学习笔记2:离散化">
-                                  
-                                      数据结构的半夜——线段树学习笔记2:离散化
-                                  
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/数据结构/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>数据结构</a> <a class="tag" href="/tags/线段树/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>线段树</a> <a class="tag" href="/tags/算法竞赛/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>算法竞赛</a> <a class="tag" href="/tags/离散化/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>离散化</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
-                
-                    <section class="next">
-                        <span class="art-item-right" aria-hidden="true">
-                            <h6>Next&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
-                            <h4>
-                                <a href="/2019/01/12/关于新博客搬运事宜/" rel="prev" title="关于新博客搬运事宜">
-                                    
-                                        关于新博客搬运事宜
-                                    
-                                </a>
-                            </h4>
-                            
-                                
-                                <h6 class="tags">
-                                    <a class="tag" href="/tags/杂项/"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i>杂项</a>
-                                </h6>
-                            
-                        </span>
-                    </section>
-                
-            </div>
-        
-      </section>
-    </article>
+      
+    
+  </section>
   
-
-  
-    <!-- 显示推荐文章和评论 -->
-
-
+    
+    <!-- 根据主题中的设置决定是否在archive中针对摘要部分的MathJax公式加载mathjax.js文件 -->
+    
+    
 
   
 
 
+    
   
-
-
-
-
-<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
-
-
-
-  <script>
-    window.subData = {
-      title: '数据结构的半夜----线段树学习笔记1',
-      tools: true
-    }
-  </script>
-
 
 </div>
 <aside class='l_side'>
@@ -701,20 +757,6 @@
           
           
             
-  <section class='widget toc-wrapper'>
-    
-<header class=''>
-  <div><i class="fas fa-list fa-fw" aria-hidden="true"></i>&nbsp;&nbsp;TOC</div>
-  
-    <div class='wrapper'><a class="s-toc rightBtn" rel="external nofollow noopener noreferrer" href="javascript:void(0)"><i class="fas fa-thumbtack fa-fw"></i></a></div>
-  
-</header>
-
-    <div class='content '>
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言"><span class="toc-text">说过以后写blog要严肃点，我现在就严肃地修改一下，删冗余，精简语言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-敌兵布阵-HDU-1166"><span class="toc-text">A-敌兵布阵 HDU-1166</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-I-Hate-It-HDU-1754"><span class="toc-text">B-I Hate It HDU-1754</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-A-Simple-Problem-with-Integers"><span class="toc-text">C-A Simple Problem with Integers</span></a></li></ol>
-    </div>
-  </section>
-
 
           
         
